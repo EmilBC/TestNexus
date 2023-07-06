@@ -10,8 +10,8 @@ def pushImage(){
     echo 'Pushing image to docker hosted rerpository on Nexus'
 
     withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'PSW', usernameVariable: 'USER')]){
-        sh "echo ${PSW} | docker login -u ${USER} --password-stdin 64.227.128.95:8082"
-        sh "docker push 64.227.128.95:8082/sanskriti-portfolio:${BUILD_NUMBER}"
+        sh "echo ${PSW} | docker login -u ${USER} --password-stdin  https://ffea-2a01-cb06-a04a-8df2-c58a-5ffd-bc36-458b.ngrok-free.app"
+        sh "docker push  https://ffea-2a01-cb06-a04a-8df2-c58a-5ffd-bc36-458b.ngrok-free.app/nexustest:${BUILD_NUMBER}"
     }
 }
 
