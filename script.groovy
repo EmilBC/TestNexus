@@ -12,7 +12,7 @@ def pushImage(){
     //withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'PSW', usernameVariable: 'USER')]){
       //  sh "echo ${PSW} | docker login -u ${USER} --password-stdin  https://ffea-2a01-cb06-a04a-8df2-c58a-5ffd-bc36-458b.ngrok-free.app"
         //sh "docker push  https://ffea-2a01-cb06-a04a-8df2-c58a-5ffd-bc36-458b.ngrok-free.app/nexustest:${BUILD_NUMBER}"
-    }
+    //}
 }
 
 def testApp(){
