@@ -4,6 +4,7 @@ pipeline{
 
     stages{
         stage('Init'){
+             echo "1."
             steps{
                 script{
                     gv_script = load "script.groovy"
@@ -12,6 +13,7 @@ pipeline{
         }
 
         stage('Build'){
+              echo "2."
             steps{
                 script{
                     gv_script.buildApp()
