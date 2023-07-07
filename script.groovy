@@ -7,12 +7,12 @@ def pushImage(){
     echo 'Building Image ...'
     sh "docker build -t tcp://5.tcp.eu.ngrok.io:19844/nexustest:${BUILD_NUMBER} ."
 
-    //echo 'Pushing image to docker hosted rerpository on Nexus'
+    echo 'Pushing image to docker hosted rerpository on Nexus'
 
-    //withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'PSW', usernameVariable: 'USER')]){
-      //  sh "echo ${PSW} | docker login -u ${USER} --password-stdin  https://ffea-2a01-cb06-a04a-8df2-c58a-5ffd-bc36-458b.ngrok-free.app"
-        //sh "docker push  https://ffea-2a01-cb06-a04a-8df2-c58a-5ffd-bc36-458b.ngrok-free.app/nexustest:${BUILD_NUMBER}"
-    //}
+withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'PSW', usernameVariable: 'USER')]){
+        sh "echo ${PSW} | docker login -u ${USER} --password-stdin  https://ffea-2a01-cb06-a04a-8df2-c58a-5ffd-bc36-458b.ngrok-free.app"
+        sh "docker push  https://ffea-2a01-cb06-a04a-8df2-c58a-5ffd-bc36-458b.ngrok-free.app/nexustest:${BUILD_NUMBER}"
+    }
 }
 
 def testApp(){
