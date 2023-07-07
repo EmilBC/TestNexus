@@ -5,13 +5,13 @@ def buildApp(){
 
 def pushImage(){
     echo 'Building Image ...'
-     sh "docker build -t https://03a8-2a01-cb06-b031-4ee1-d847-9253-6f0c-4e21.ngrok-free.app/devopsexamplenew1234567:${env.BUILD_NUMBER} ."
+     sh "docker build -t  https://cc3f-2a01-cb06-b031-4ee1-d847-9253-6f0c-4e21.ngrok-free.app/devopsexamplenew1234567:${env.BUILD_NUMBER} ."
 
     echo 'Pushing image to docker hosted rerpository on Nexus'
 
 withCredentials([usernamePassword(credentialsId: 'nexus', passwordVariable: 'PSW', usernameVariable: 'USER')]){
-        sh "echo ${PSW} | docker login -u ${USER} --password-stdin https://03a8-2a01-cb06-b031-4ee1-d847-9253-6f0c-4e21.ngrok-free.app"
-        sh "docker push https://03a8-2a01-cb06-b031-4ee1-d847-9253-6f0c-4e21.ngrok-free.app/devopsexamplenew1234567:${env.BUILD_NUMBER}"
+        sh "echo ${PSW} | docker login -u ${USER} --password-stdin  https://cc3f-2a01-cb06-b031-4ee1-d847-9253-6f0c-4e21.ngrok-free.app"
+        sh "docker push  https://cc3f-2a01-cb06-b031-4ee1-d847-9253-6f0c-4e21.ngrok-free.app/devopsexamplenew1234567:${env.BUILD_NUMBER}"
     }
 }
 
