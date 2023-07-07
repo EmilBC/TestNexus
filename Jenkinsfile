@@ -3,6 +3,13 @@ pipeline{
     agent any
 
     stages{
+        stage('Initialize Docker'){    
+	   steps{
+	          script{
+	  env.PATH = "${dockerHome}/bin:${env.PATH}"     
+		  }
+	   }
+    }
         stage('Init'){
            
             steps{
